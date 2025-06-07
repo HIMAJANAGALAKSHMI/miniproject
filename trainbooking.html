@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IRCTC Train Ticket Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 30px;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #fff;
+            padding: 15px 20px;
+            background: linear-gradient(90deg, #003366, #ff0004);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+        }
+
+        form {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 700px;
+            margin: auto;
+        }
+
+        fieldset {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="email"],
+        input[type="number"],
+        select,
+        input[type="file"] {
+            width: 95%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #00c3ff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #b33600;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>IRCTC Train Ticket Booking Application</h2>
+
+    <form action="confirmation.html".html" method="get" enctype="multipart/form-data">
+
+        <!-- Passenger Details -->
+        <fieldset>
+            <legend>Passenger Details</legend>
+            Name: <input type="text" name="name" maxlength="50" required>
+            Date of Birth: <input type="date" name="dob" required>
+            Age (Years): <input type="number" name="age" placeholder="Years" required>
+            WhatsApp No: <input type="text" name="whatsapp">
+            Photo (Optional): <input type="file" name="photo">
+            Gender:
+            <input type="radio" name="gender" value="Female" required> Female
+            <input type="radio" name="gender" value="Male"> Male<br>
+            Aadhaar No: <input type="text" name="aadhaar">
+            E-mail ID: <input type="email" name="email">
+        </fieldset>
+
+        <!-- Travel Information -->
+        <fieldset>
+            <legend>Travel Information</legend>
+            From Station: <input type="text" name="from_station" required>
+            To Station: <input type="text" name="to_station" required>
+            Date of Journey: <input type="date" name="journey_date" required>
+            Train Class:
+            <select name="train_class" required>
+                <option value="">-- Select Class --</option>
+                <option value="Sleeper">Sleeper</option>
+                <option value="AC 3 Tier">AC 3 Tier</option>
+                <option value="AC 2 Tier">AC 2 Tier</option>
+                <option value="First Class">First Class</option>
+            </select>
+            Quota:
+            <select name="quota" required>
+                <option value="">-- Select Quota --</option>
+                <option value="General">General</option>
+                <option value="Tatkal">Tatkal</option>
+                <option value="Senior Citizen">Senior Citizen</option>
+                <option value="Ladies">Ladies</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>Residential Address</legend>
+            Address: <input type="text" name="address" maxlength="100" required>
+            District:
+            <select name="district" required>
+                <option value="">-- Select District --</option>
+                <option value="Guntur">Guntur</option>
+                <option value="Prakasam">Prakasam</option>
+                <option value="Nellore">Nellore</option>
+                <option value="Bapatla">Bapatla</option>
+            </select>
+            Mandal:
+            <select name="mandal" required>
+                <option value="">-- Select Mandal --</option>
+                <option value="Inkollu">Inkollu</option>
+                <option value="Chirala">Chirala</option>
+                <option value="Vijayawada">Vijayawada</option>
+                <option value="kavali">kavali</option>
+            </select>
+            Village:
+            <select name="village" required>
+                <option value="">-- Select Village --</option>
+                <option value="Parchur">Parchur</option>
+                <option value="Apikatla">Apikatla</option>
+                <option value="gangavaram">gangavaram</option>
+                <option value="pavulur">pavulur</option>
+            </select>
+            Pincode: <input type="text" name="pincode" maxlength="6">
+        </fieldset>
+
+        <!-- Document Upload -->
+        <fieldset>
+            <legend>Upload Identification Documents</legend>
+            Upload PDF/DOC files (optional): 
+            <input type="file" name="documents[]" accept=".pdf,.doc,.docx" multiple>
+        </fieldset>
+
+        <!-- Payment & Ticket Delivery -->
+        <fieldset>
+            <legend>Payment & Ticket Delivery</legend>
+            Payment Mode:
+            <select name="payment_mode" required>
+                <option value="">-- Select Payment Mode --</option>
+                <option>UPI</option>
+                <option>Credit Card</option>
+                <option>Debit Card</option>
+                <option>Online</option>
+            </select>
+            Ticket Delivery:
+            <select name="delivery_mode" required>
+                <option value="">-- Select Delivery Method --</option>
+                <option>E-Ticket (Email/SMS)</option>
+                <option>Print at Counter</option>
+                <option>Courier (for special cases)</option>
+            </select>
+        </fieldset>
+
+        <!-- Confirmation -->
+        <fieldset>
+            <legend>Confirm Booking</legend>
+            <label>
+                <input type="checkbox" name="confirmation" required>
+                I confirm that all information is correct and I agree to IRCTC terms & conditions.
+            </label>
+        </fieldset>
+
+        <input type="submit" value="Book Ticket">
+    </form>
+</body>
+</html>
